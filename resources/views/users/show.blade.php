@@ -11,8 +11,10 @@
                     <img class="rounded img-fluid" src="{{ Gravatar::src($user->email, 500) }}" alt="">
                 </div>
             </div>
+            @include('user_follow.follow_button', ['user' => $user])
         </aside>
         <div class="col-sm-8">
+            @include('users.navtabs', ['user' => $user])
             <ul class="nav nav-tabs nav-justified mb-3">
                 <li class="nav-item"><a href="#" class="nav-link">TimeLine</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
