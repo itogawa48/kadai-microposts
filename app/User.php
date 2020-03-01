@@ -46,10 +46,7 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'user_favorite', 'user_id', 'micropost_id')->withTimestamps();
     }
     
-    public function unfavorites()
-    {
-        return $this->belongsToMany(User::class, 'user_favorite', 'micropost_id', 'user_id')->withTimestamps();
-    }
+    
     
      public function follow($userId)
     {
@@ -107,22 +104,7 @@ class User extends Authenticatable
         }
     }
     
-    public function unfavorite($userId)
-    {
-        // 既にお気に入りにしているかの確認
-        $exist = $this->is_favorite($userId);
-        // 相手が自分自身かどうかの確認
-        $its_me = $this->id == $userId;
     
-        if ($exist && !$its_me) {
-            // 既にお気に入りにしていればお気に入りを外す
-            $this->favorites()->detach($userId);
-            return true;
-        } else {
-            // お気に入りにしていなければば何もしない
-            return false;
-        }
-    }
     
     public function is_favorite($userId)
     {

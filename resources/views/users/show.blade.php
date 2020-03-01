@@ -12,7 +12,7 @@
                 </div>
             </div>
             @include('user_follow.follow_button', ['user' => $user])
-            @include('user_favorite.favorite_button', ['user' => $user])
+            
         </aside>
         <div class="col-sm-8">
             @include('users.navtabs', ['user' => $user])
