@@ -81,18 +81,5 @@ class UsersController extends Controller
         return view('users.favorites', $data);
     }
 
-    public function unfavorites($id)
-    {
-        $user = User::find($id);
-        $unfavorites = $user->unfavorites()->paginate(10);
-
-        $data = [
-            'user' => $user,
-            'users' => $unfavorites,
-        ];
-
-        $data += $this->counts($user);
-
-        return view('users.unfavorites', $data);
-    }
+    
 }
