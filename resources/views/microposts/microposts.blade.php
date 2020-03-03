@@ -16,9 +16,7 @@
                         {!! Form::close() !!}
                         
                     @endif
-                        {!! Form::open(['route' => ['favorites.favorite', $micropost->id], 'method' => 'post']) !!}
-                            {!! Form::submit('Favorite', ['class' => 'btn btn-danger btn-sm']) !!}
-                        {!! Form::close() !!}
+                    @include('user_favorite.favorite_button', ['micropost' => $micropost])
                 </div>
             </div>
         </li>

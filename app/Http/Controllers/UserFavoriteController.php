@@ -14,7 +14,7 @@ class UserFavoriteController extends Controller
 
     public function destroy($id)
     {
-        \Auth::user()->favorite($id);
+        \Auth::user()->unfavorite($id);
         return back();
     }
 }
